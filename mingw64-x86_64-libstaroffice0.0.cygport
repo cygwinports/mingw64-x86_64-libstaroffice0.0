@@ -1,0 +1,22 @@
+CROSS_HOST="x86_64-w64-mingw32"
+inherit cross
+
+NAME="mingw64-x86_64-libstaroffice0.0"
+VERSION=0.0.1
+RELEASE=1
+CATEGORY="Libs"
+SUMMARY="StarOffice document import filter library for Win64 toolchain"
+DESCRIPTION="Libstaroffice is library providing ability to interpret and import
+old StarOffice content into various applications."
+HOMEPAGE="https://github.com/fosnola/libstaroffice"
+SRC_URI="${HOMEPAGE}/releases/download/${VERSION}/libstaroffice-${VERSION}.tar.xz"
+SRC_DIR="libstaroffice-${VERSION}"
+
+CYGCONF_ARGS="--disable-docs --disable-werror"
+
+src_install() {
+	cd ${B}
+	cyginstall bin_PROGRAMS=
+}
+
+KEEP_LA_FILES="none"
